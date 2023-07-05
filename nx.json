@@ -2,7 +2,7 @@
   "extends": "nx/presets/npm.json",
   "npmScope": "monorepo",
   "affected": {
-    "defaultBase": "main"
+    "defaultBase": "mainline"
   },
   "namedInputs": {
     "default": [
