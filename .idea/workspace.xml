@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="43f1c7b1-b42d-417a-87fb-9495de783178" name="Changes" comment="feat: add infra package">
-      <change afterPath="$PROJECT_DIR$/packages/infra/src/constructs/external-storages.ts" afterDir="false" />
+    <list default="true" id="43f1c7b1-b42d-417a-87fb-9495de783178" name="Changes" comment="feat: add external storage construct">
+      <change afterPath="$PROJECT_DIR$/packages/infra/resources/iris/model.tar.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/infra/src/application-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/infra/src/application-stack.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/infra/src/pipeline-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/infra/src/pipeline-stack.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/infra/test/__snapshots__/pipeline.test.ts.snap" beforeDir="false" afterPath="$PROJECT_DIR$/packages/infra/test/__snapshots__/pipeline.test.ts.snap" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +42,12 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages/infra/resources/iris" />
+      <recent name="$PROJECT_DIR$/packages/infra/resources/iris/i/src" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -53,7 +56,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1688552546475</updated>
-      <workItem from="1688552547456" duration="17228000" />
+      <workItem from="1688552547456" duration="20907000" />
     </task>
     <task id="LOCAL-00001" summary="feat: Init Commit">
       <created>1688553613529</created>
@@ -167,7 +170,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688569818030</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="feat: add external storage construct">
+      <created>1688692847076</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1688692847076</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,6 +186,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: Init Commit" />
     <MESSAGE value="feat: add infra package" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add infra package" />
+    <MESSAGE value="feat: add external storage construct" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add external storage construct" />
   </component>
 </project>
