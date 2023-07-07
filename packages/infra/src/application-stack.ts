@@ -3,6 +3,7 @@ SPDX-License-Identifier: Apache-2.0 */
 import { Stack, StackProps } from "aws-cdk-lib";
 import { Construct } from "constructs";
 import { ExternalStorages } from "./constructs/external-storages";
+import { HipVpc } from "./constructs/hip-vpc";
 
 export class ApplicationStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
@@ -14,5 +15,7 @@ export class ApplicationStack extends Stack {
       modelArtifactBucketName: undefined,
       codeStorageBucketName: undefined,
     });
+
+    new HipVpc(this, "Vpc");
   }
 }
