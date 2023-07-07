@@ -32,10 +32,8 @@ export class PipelineStack extends Stack {
           "npm install -g aws-cdk pnpm",
           "pnpm install --frozen-lockfile || npx projen && pnpm install --frozen-lockfile",
         ],
-        commands: [
-            "npx nx run-many --target=build --all"
-        ]
-      }
+        commands: ["npx nx run-many --target=build --all"],
+      },
     });
   }
 }
