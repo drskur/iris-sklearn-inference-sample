@@ -35,6 +35,7 @@
     "typescript": "^5.1.6"
   },
   "dependencies": {
+    "@aws-sdk/client-sagemaker": "^3.365.0",
     "aws-lambda": "^1.0.7"
   },
   "pnpm": {},

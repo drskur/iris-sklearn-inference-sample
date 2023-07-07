@@ -79,6 +79,10 @@
       "type": "build"
     },
     {
+      "name": "@aws-sdk/client-sagemaker",
+      "type": "runtime"
+    },
+    {
       "name": "aws-lambda",
       "type": "runtime"
     }

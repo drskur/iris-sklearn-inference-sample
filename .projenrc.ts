@@ -34,7 +34,7 @@ new TypeScriptProject({
   prettier: true,
   eslint: true,
   devDeps: ["@types/aws-lambda"],
-  deps: ["aws-lambda"],
+  deps: ["aws-lambda", "@aws-sdk/client-sagemaker"],
 });
 
 project.synth();

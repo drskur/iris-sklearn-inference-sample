@@ -5,8 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43f1c7b1-b42d-417a-87fb-9495de783178" name="Changes" comment="feat: define model registration function">
+      <change afterPath="$PROJECT_DIR$/packages/model_registration/src/input.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/model_registration/src/model-registration.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/infra/src/constructs/model-registration-function.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/infra/src/constructs/model-registration-function.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.projenrc.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.projenrc.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/model_registration/.projen/deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/model_registration/.projen/deps.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/model_registration/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/model_registration/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/model_registration/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/model_registration/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,24 +34,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "mainline",
-    "last_opened_file_path": "/Users/drskur/Developer/Samsung/hip",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "prettier.import.notification.dismissed": "true",
-    "prettierjs.PrettierConfiguration.Package": "/Users/drskur/Developer/Samsung/hip/node_modules/prettier",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "/Users/drskur/Developer/Samsung/hip/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;mainline&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/drskur/Developer/Samsung/hip&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettier.import.notification.dismissed&quot;: &quot;true&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/drskur/Developer/Samsung/hip/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/drskur/Developer/Samsung/hip/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/packages/infra/resources/iris" />
@@ -62,7 +68,8 @@
       <updated>1688552546475</updated>
       <workItem from="1688552547456" duration="25063000" />
       <workItem from="1688712432519" duration="2468000" />
-      <workItem from="1688716446881" duration="327000" />
+      <workItem from="1688716446881" duration="2894000" />
+      <workItem from="1688719348918" duration="747000" />
     </task>
     <task id="LOCAL-00001" summary="feat: Init Commit">
       <created>1688553613529</created>
@@ -218,7 +225,15 @@
       <option name="project" value="LOCAL" />
       <updated>1688714905027</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="feat: define model registration function">
+      <option name="closed" value="true" />
+      <created>1688717034187</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1688717034187</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
