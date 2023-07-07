@@ -2,3 +2,4 @@
 
 packages:
   - packages/infra
+  - packages/model_registration

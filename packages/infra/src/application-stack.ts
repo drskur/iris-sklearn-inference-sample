@@ -4,6 +4,7 @@ import { Stack, StackProps } from "aws-cdk-lib";
 import { Construct } from "constructs";
 import { ExternalStorages } from "./constructs/external-storages";
 import { HipVpc } from "./constructs/hip-vpc";
+import { ModelRegistrationFunction } from "./constructs/model-registration-function";
 
 export class ApplicationStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
@@ -16,6 +17,10 @@ export class ApplicationStack extends Stack {
       codeStorageBucketName: undefined,
     });
 
-    new HipVpc(this, "Vpc");
+    const { vpc } = new HipVpc(this, "Vpc");
+
+    new ModelRegistrationFunction(this, "ModelRegistrationFunction", {
+      vpc,
+    });
   }
 }
