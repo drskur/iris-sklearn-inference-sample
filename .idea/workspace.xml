@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43f1c7b1-b42d-417a-87fb-9495de783178" name="Changes" comment="feat: create model">
+      <change afterPath="$PROJECT_DIR$/packages/infra/src/constructs/invoke-endpoint-function.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/sagemaker_endpoint/cmd/invoke_endpoint/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/infra/src/application-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/infra/src/application-stack.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/infra/src/constructs/create-endpoint-function.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/infra/src/constructs/create-endpoint-function.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/sagemaker_endpoint/cmd/create_endpoint/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/packages/sagemaker_endpoint/cmd/create_endpoint/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/sagemaker_endpoint/sagemaker/manager.go" beforeDir="false" afterPath="$PROJECT_DIR$/packages/sagemaker_endpoint/sagemaker/manager.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +74,7 @@
       <workItem from="1689142815477" duration="159000" />
       <workItem from="1689142976661" duration="17000" />
       <workItem from="1689143004119" duration="201000" />
-      <workItem from="1689143208485" duration="8600000" />
+      <workItem from="1689143208485" duration="10950000" />
     </task>
     <task id="LOCAL-00001" summary="feat: Init Commit">
       <created>1688553613529</created>

@@ -45,7 +45,6 @@ export class CreateEndpointFunction extends Construct {
           "ec2:DeleteNetworkInterface",
           "ec2:AssignPrivateIpAddresses",
           "ec2:UnassignPrivateIpAddresses",
-          "iam:PassRole",
         ],
         resources: ["*"],
       })
@@ -54,7 +53,12 @@ export class CreateEndpointFunction extends Construct {
     role.addToPolicy(
       new PolicyStatement({
         effect: Effect.ALLOW,
-        actions: ["sagemaker:ListModelPackages", "sagemaker:CreateModel"],
+        actions: [
+          "sagemaker:ListModelPackages",
+          "sagemaker:CreateModel",
+          "sagemaker:CreateEndpointConfig",
+          "sagemaker:CreateEndpoint",
+        ],
         resources: [
           `arn:aws:sagemaker:${Stack.of(this).region}:${
             Stack.of(this).account
