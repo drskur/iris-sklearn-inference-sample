@@ -10,17 +10,23 @@ export class ApplicationStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
-    new ExternalStorages(this, "ExternalStorages", {
-      // If set to undefined, a new bucket will be created.
-      // If the bucket already exists, enter a name.
-      modelArtifactBucketName: undefined,
-      codeStorageBucketName: undefined,
-    });
+    const { modelArtifactBucket, codeStorageBucket } = new ExternalStorages(
+      this,
+      "ExternalStorages",
+      {
+        // If set to undefined, a new bucket will be created.
+        // If the bucket already exists, enter a name.
+        modelArtifactBucketName: undefined,
+        codeStorageBucketName: undefined,
+      }
+    );
 
     const { vpc } = new HipVpc(this, "Vpc");
 
     new ModelRegistrationFunction(this, "ModelRegistrationFunction", {
       vpc,
+      modelArtifactBucket,
+      codeStorageBucket,
     });
   }
 }

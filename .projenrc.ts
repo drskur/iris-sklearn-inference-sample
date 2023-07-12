@@ -1,8 +1,8 @@
 /*! Copyright [Amazon.com](http://amazon.com/), Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: Apache-2.0 */
 import { NxMonorepoProject } from "@aws-prototyping-sdk/nx-monorepo";
-import { NodePackageManager } from "projen/lib/javascript";
 import { PDKPipelineTsProject } from "@aws-prototyping-sdk/pipeline";
+import { NodePackageManager } from "projen/lib/javascript";
 import { TypeScriptProject } from "projen/lib/typescript";
 
 const project = new NxMonorepoProject({

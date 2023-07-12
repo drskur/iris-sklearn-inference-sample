@@ -30,8 +30,12 @@ export const handler: Handler = async (
     region: SAGEMAKER_REGION,
   });
 
-  const arn = await modelRegistration.findModelPackageGroupArn("iris");
-  console.log("arn", arn);
+  const arn = await modelRegistration.findOrCreateModelPackageGroup(
+    event.modelPackageGroupName
+  );
+
+  const output = await modelRegistration.createModelPackage(arn, event);
+  console.log(output);
 
   return context.logStreamName;
 };

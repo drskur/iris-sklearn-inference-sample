@@ -6,7 +6,7 @@ export interface ModelRegistrationFunctionInput {
   // S3 path where code are stored (tar.gz)
   codeStorageS3Key: string;
   // The name of the model. The version of the model is managed based on this name
-  modelGroupName: string;
+  modelPackageGroupName: string;
   // Instance Type where the batch transform job will be executed
   transformInstanceType: string;
   // Instance Type where the sagemaker endpoint will be deployed
