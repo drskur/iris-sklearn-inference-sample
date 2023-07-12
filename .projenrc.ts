@@ -4,6 +4,7 @@ import { NxMonorepoProject } from "@aws-prototyping-sdk/nx-monorepo";
 import { PDKPipelineTsProject } from "@aws-prototyping-sdk/pipeline";
 import { NodePackageManager } from "projen/lib/javascript";
 import { TypeScriptProject } from "projen/lib/typescript";
+import { Project } from "projen";
 
 const project = new NxMonorepoProject({
   defaultReleaseBranch: "mainline",
@@ -23,6 +24,7 @@ new PDKPipelineTsProject({
   defaultReleaseBranch: "mainline",
   name: "infra",
   cdkVersion: "2.1.0",
+  deps: ["@aws-cdk/aws-lambda-go-alpha"],
 });
 
 new TypeScriptProject({
@@ -35,6 +37,12 @@ new TypeScriptProject({
   eslint: true,
   devDeps: ["@types/aws-lambda"],
   deps: ["aws-lambda", "@aws-sdk/client-sagemaker"],
+});
+
+new Project({
+  parent: project,
+  name: "sagemaker_endpoint",
+  outdir: "packages/sagemaker_endpoint",
 });
 
 project.synth();

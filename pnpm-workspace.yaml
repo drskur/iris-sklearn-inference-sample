@@ -3,3 +3,4 @@
 packages:
   - packages/infra
   - packages/model_registration
+  - packages/sagemaker_endpoint

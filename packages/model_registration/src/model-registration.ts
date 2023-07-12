@@ -3,7 +3,6 @@ import {
   CreateModelPackageGroupCommand,
   DescribeModelPackageGroupCommand,
   SageMakerClient,
-  UpdateModelPackageCommand,
 } from "@aws-sdk/client-sagemaker";
 import { ModelRegistrationFunctionInput } from "./input";
 
@@ -61,15 +60,6 @@ export class ModelRegistration {
     return this.createModelPackageGroup(modelPackageGroupName);
   }
 
-  async modelPackageApprove(modelPackageArn: string) {
-    const cmd = new UpdateModelPackageCommand({
-      ModelPackageArn: modelPackageArn,
-      ModelApprovalStatus: "Approved",
-    });
-
-    return this.sagemakerClient.send(cmd);
-  }
-
   async createModelPackage(
     modelPackageGroupArn: string,
     input: ModelRegistrationFunctionInput
@@ -101,5 +91,4 @@ export class ModelRegistration {
 
     return this.sagemakerClient.send(cmd);
   }
-
 }

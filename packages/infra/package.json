@@ -43,6 +43,7 @@
     "typescript": "^5.1.6"
   },
   "dependencies": {
+    "@aws-cdk/aws-lambda-go-alpha": "^2.86.0-alpha.0",
     "@aws-prototyping-sdk/pdk-nag": "^0.19.33",
     "@aws-prototyping-sdk/pipeline": "^0.19.33",
     "aws-cdk-lib": "^2.1.0",

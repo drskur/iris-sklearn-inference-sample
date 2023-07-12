@@ -15,10 +15,10 @@ importers:
     dependencies:
       aws-cdk-lib:
         specifier: ^2.86.0
-        version: 2.86.0(constructs@10.2.69)
+        version: 2.87.0(constructs@10.2.69)
       cdk-nag:
         specifier: ^2.27.60
-        version: 2.27.60(aws-cdk-lib@2.86.0)(constructs@10.2.69)
+        version: 2.27.60(aws-cdk-lib@2.87.0)(constructs@10.2.69)
       constructs:
         specifier: ^10.2.69
         version: 10.2.69
@@ -28,7 +28,7 @@ importers:
         version: 0.19.33(@pnpm/logger@5.0.0)(projen@0.71.125)
       '@aws-prototyping-sdk/pipeline':
         specifier: ^0.19.33
-        version: 0.19.33(aws-cdk-lib@2.86.0)(cdk-nag@2.27.60)(constructs@10.2.69)(projen@0.71.125)
+        version: 0.19.33(aws-cdk-lib@2.87.0)(cdk-nag@2.27.60)(constructs@10.2.69)(projen@0.71.125)
       '@types/node':
         specifier: ^16
         version: 16.18.38
@@ -80,6 +80,9 @@ importers:
 
   packages/infra:
     dependencies:
+      '@aws-cdk/aws-lambda-go-alpha':
+        specifier: ^2.86.0-alpha.0
+        version: 2.86.0-alpha.0(aws-cdk-lib@2.86.0)(constructs@10.2.69)
       '@aws-prototyping-sdk/pdk-nag':
         specifier: ^0.19.33
         version: 0.19.33(aws-cdk-lib@2.86.0)(cdk-nag@2.27.60)(constructs@10.2.69)
@@ -245,6 +248,17 @@ packages:
   /@aws-cdk/asset-node-proxy-agent-v5@2.0.165:
     resolution: {integrity: sha512-bsyLQD/vqXQcc9RDmlM1XqiFNO/yewgVFXmkMcQkndJbmE/jgYkzewwYGrBlfL725hGLQipXq19+jwWwdsXQqg==}
 
+  /@aws-cdk/aws-lambda-go-alpha@2.86.0-alpha.0(aws-cdk-lib@2.86.0)(constructs@10.2.69):
+    resolution: {integrity: sha512-7fCwgiphVhnDeXKOC/BsBQlso0I9M0ekcOmuvvWrB/Cy9aUZ2W2uqY1VkBVhEaVotSj6HEhJvdAcX5pjzvq8gA==}
+    engines: {node: '>= 14.15.0'}
+    peerDependencies:
+      aws-cdk-lib: 2.86.0
+      constructs: ^10.0.0
+    dependencies:
+      aws-cdk-lib: 2.86.0(constructs@10.2.69)
+      constructs: 10.2.69
+    dev: false
+
   /@aws-crypto/crc32@3.0.0:
     resolution: {integrity: sha512-IzSgsrxUcsrejQbPVilIKy16kAT52EwB6zSaI+M3xxIhKh5+aldEyvI+z6erM7TCLB2BJsFrtHjp6/4/sr+3dA==}
     dependencies:
@@ -322,6 +336,19 @@ packages:
       aws-cdk-lib: 2.86.0(constructs@10.2.69)
       cdk-nag: 2.27.60(aws-cdk-lib@2.86.0)(constructs@10.2.69)
       constructs: 10.2.69
+    dev: false
+
+  /@aws-prototyping-sdk/pdk-nag@0.19.33(aws-cdk-lib@2.87.0)(cdk-nag@2.27.60)(constructs@10.2.69):
+    resolution: {integrity: sha512-ko6OsRv4XnPNZCSXy0zA9qoJrJaiW3n+/F1MdbtEx7AMz4iiXjUP/1i10azDiYx4QzRElawGdO5atxIXA0TC9g==}
+    peerDependencies:
+      aws-cdk-lib: ^2.81.0
+      cdk-nag: ^2.27.24
+      constructs: ^10.2.39
+    dependencies:
+      aws-cdk-lib: 2.87.0(constructs@10.2.69)
+      cdk-nag: 2.27.60(aws-cdk-lib@2.87.0)(constructs@10.2.69)
+      constructs: 10.2.69
+    dev: true
 
   /@aws-prototyping-sdk/pipeline@0.19.33(aws-cdk-lib@2.86.0)(cdk-nag@2.27.60)(constructs@10.2.69)(projen@0.71.125):
     resolution: {integrity: sha512-qXvaR95klgpLle/bxOrIu8iL6bQ26YEEl7Ps8c3IRhcIj8LQx1QCq14WCAHXWPt6THphlo6MEjiRi1cEvVvBHA==}
@@ -336,6 +363,22 @@ packages:
       cdk-nag: 2.27.60(aws-cdk-lib@2.86.0)(constructs@10.2.69)
       constructs: 10.2.69
       projen: 0.71.125
+    dev: false
+
+  /@aws-prototyping-sdk/pipeline@0.19.33(aws-cdk-lib@2.87.0)(cdk-nag@2.27.60)(constructs@10.2.69)(projen@0.71.125):
+    resolution: {integrity: sha512-qXvaR95klgpLle/bxOrIu8iL6bQ26YEEl7Ps8c3IRhcIj8LQx1QCq14WCAHXWPt6THphlo6MEjiRi1cEvVvBHA==}
+    peerDependencies:
+      aws-cdk-lib: ^2.81.0
+      cdk-nag: ^2.27.24
+      constructs: ^10.2.39
+      projen: ^0.71.92
+    dependencies:
+      '@aws-prototyping-sdk/pdk-nag': 0.19.33(aws-cdk-lib@2.87.0)(cdk-nag@2.27.60)(constructs@10.2.69)
+      aws-cdk-lib: 2.87.0(constructs@10.2.69)
+      cdk-nag: 2.27.60(aws-cdk-lib@2.87.0)(constructs@10.2.69)
+      constructs: 10.2.69
+      projen: 0.71.125
+    dev: true
 
   /@aws-sdk/client-sagemaker@3.365.0:
     resolution: {integrity: sha512-cyEMCDTalr1tHrqJ1Q9O3s34UBCU/4qktj1xg7f1X3YafitwBq2jYKx6eSIawkyWlKrta3SklNRRfzjo3GoMnQ==}
@@ -2989,6 +3032,39 @@ packages:
       semver: 7.5.3
       table: 6.8.1
       yaml: 1.10.2
+    dev: false
+    bundledDependencies:
+      - '@balena/dockerignore'
+      - case
+      - fs-extra
+      - ignore
+      - jsonschema
+      - minimatch
+      - punycode
+      - semver
+      - table
+      - yaml
+
+  /aws-cdk-lib@2.87.0(constructs@10.2.69):
+    resolution: {integrity: sha512-9kirXX7L7OP/yGmCbaYlkt5OAtowGiGw0AYFIQvSwvx/UU3aJO5XuDwAgDsvToDkRpBi0yX0bNwqa0DItu+C6A==}
+    engines: {node: '>= 14.15.0'}
+    peerDependencies:
+      constructs: ^10.0.0
+    dependencies:
+      '@aws-cdk/asset-awscli-v1': 2.2.200
+      '@aws-cdk/asset-kubectl-v20': 2.1.2
+      '@aws-cdk/asset-node-proxy-agent-v5': 2.0.165
+      '@balena/dockerignore': 1.0.2
+      case: 1.6.3
+      constructs: 10.2.69
+      fs-extra: 11.1.1
+      ignore: 5.2.4
+      jsonschema: 1.4.1
+      minimatch: 3.1.2
+      punycode: 2.3.0
+      semver: 7.5.3
+      table: 6.8.1
+      yaml: 1.10.2
     bundledDependencies:
       - '@balena/dockerignore'
       - case
@@ -3319,6 +3395,16 @@ packages:
       constructs: ^10.0.5
     dependencies:
       aws-cdk-lib: 2.86.0(constructs@10.2.69)
+      constructs: 10.2.69
+    dev: false
+
+  /cdk-nag@2.27.60(aws-cdk-lib@2.87.0)(constructs@10.2.69):
+    resolution: {integrity: sha512-WzUuL3y4l4embJBoGOmwMN/i27sRsbS04M7gsFUmYsEnLNNmPysLICtqyQTBbXFdT++E+xvNJ9iGfPedeP4SzQ==}
+    peerDependencies:
+      aws-cdk-lib: ^2.78.0
+      constructs: ^10.0.5
+    dependencies:
+      aws-cdk-lib: 2.87.0(constructs@10.2.69)
       constructs: 10.2.69
 
   /chalk@2.4.2:

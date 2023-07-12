@@ -2,6 +2,7 @@
 SPDX-License-Identifier: Apache-2.0 */
 import { Stack, StackProps } from "aws-cdk-lib";
 import { Construct } from "constructs";
+import { CreateEndpointFunction } from "./constructs/create-endpoint-function";
 import { ExternalStorages } from "./constructs/external-storages";
 import { HipVpc } from "./constructs/hip-vpc";
 import { ModelRegistrationFunction } from "./constructs/model-registration-function";
@@ -24,6 +25,12 @@ export class ApplicationStack extends Stack {
     const { vpc } = new HipVpc(this, "Vpc");
 
     new ModelRegistrationFunction(this, "ModelRegistrationFunction", {
+      vpc,
+      modelArtifactBucket,
+      codeStorageBucket,
+    });
+
+    new CreateEndpointFunction(this, "CreateEndpointFunction", {
       vpc,
       modelArtifactBucket,
       codeStorageBucket,

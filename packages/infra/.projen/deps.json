@@ -88,6 +88,10 @@
       "type": "build"
     },
     {
+      "name": "@aws-cdk/aws-lambda-go-alpha",
+      "type": "runtime"
+    },
+    {
       "name": "@aws-prototyping-sdk/pdk-nag",
       "type": "runtime"
     },
