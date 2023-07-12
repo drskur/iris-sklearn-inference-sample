@@ -99,7 +99,7 @@ export class CreateEndpointFunction extends Construct {
 
     this.fn = new GoFunction(this, "Function", {
       entry: "../sagemaker_endpoint/cmd/create_endpoint",
-      runtime: Runtime.PROVIDED,
+      runtime: Runtime.PROVIDED_AL2,
       timeout: Duration.seconds(10),
       vpc,
       role,
