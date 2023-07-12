@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="43f1c7b1-b42d-417a-87fb-9495de783178" name="Changes" comment="feat: create model">
+    <list default="true" id="43f1c7b1-b42d-417a-87fb-9495de783178" name="Changes" comment="fix: use al2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/infra/src/constructs/create-endpoint-function.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/infra/src/constructs/create-endpoint-function.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/infra/src/constructs/invoke-endpoint-function.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/infra/src/constructs/invoke-endpoint-function.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/model_registration/src/model-registration.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/model_registration/src/model-registration.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/infra/src/pipeline.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/infra/src/pipeline.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +71,7 @@
       <workItem from="1689142815477" duration="159000" />
       <workItem from="1689142976661" duration="17000" />
       <workItem from="1689143004119" duration="201000" />
-      <workItem from="1689143208485" duration="13805000" />
+      <workItem from="1689143208485" duration="15340000" />
     </task>
     <task id="LOCAL-00001" summary="feat: Init Commit">
       <created>1688553613529</created>
@@ -269,7 +267,15 @@
       <option name="project" value="LOCAL" />
       <updated>1689149078981</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="fix: use al2">
+      <option name="closed" value="true" />
+      <created>1689163159803</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1689163159803</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -295,6 +301,7 @@
     <MESSAGE value="feat: define model registration function" />
     <MESSAGE value="feat: impl model registration" />
     <MESSAGE value="feat: create model" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: create model" />
+    <MESSAGE value="fix: use al2" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: use al2" />
   </component>
 </project>

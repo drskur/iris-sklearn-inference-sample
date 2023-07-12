@@ -18,8 +18,8 @@ const pipelineStack = new PipelineStack(app, branchPrefix + "PipelineStack", {
 
 const devStage = new ApplicationStage(app, branchPrefix + "Dev", {
   env: {
-    account: "472491978826",
-    region: "ap-northeast-2",
+    account: process.env.CDK_DEFAULT_ACCOUNT!, // Edit your account
+    region: process.env.CDK_DEFAULT_REGION!,  // Edit your region
   },
 });
 
