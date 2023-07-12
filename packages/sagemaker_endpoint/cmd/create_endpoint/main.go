@@ -11,6 +11,7 @@ import (
 
 type CreateEdnpointEvent struct {
 	ModelPackageGroupName string `json:"modelPackageGroupName"`
+	InstanceType          string `json:"instanceType"`
 }
 
 func HandleRequest(ctx context.Context, event CreateEdnpointEvent) (string, error) {
@@ -30,13 +31,21 @@ func HandleRequest(ctx context.Context, event CreateEdnpointEvent) (string, erro
 		log.Fatal(err)
 	}
 
-	output, err := manager.CreateModel(event.ModelPackageGroupName, latest.ModelPackageArn)
+	modelName, err := manager.CreateModel(event.ModelPackageGroupName, latest.ModelPackageArn)
 	if err != nil {
 		log.Fatal(err)
 	}
-	log.Printf("%v", output)
 
-	return "Hello World", nil
+	endpointCfgName, err := manager.CreateEndpointConfig(event.ModelPackageGroupName, event.InstanceType, modelName)
+	if err != nil {
+		log.Fatal(err)
+	}
+	endpointName, err := manager.CreateEndpoint(event.ModelPackageGroupName, endpointCfgName)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	return endpointName, nil
 }
 
 func main() {

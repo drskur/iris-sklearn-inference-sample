@@ -3,6 +3,7 @@ package sagemaker
 import (
 	"context"
 	"fmt"
+	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/service/sagemaker"
 	"github.com/aws/aws-sdk-go-v2/service/sagemaker/types"
@@ -44,17 +45,51 @@ func (m *EndpointManager) FindLatestModelPackage(modelPackageGroupName string) (
 	return &output.ModelPackageSummaryList[0], nil
 }
 
-func (m *EndpointManager) CreateModel(modelPackageGroupName string, modelPackageArn *string) (*sagemaker.CreateModelOutput, error) {
+func (m *EndpointManager) CreateModel(modelPackageGroupName string, modelPackageArn *string) (string, error) {
 	now := time.Now()
 	modelName := fmt.Sprintf("%s-%s", modelPackageGroupName, now.Format("2006-01-02-15-04-05"))
-	container := types.ContainerDefinition{
-		ModelPackageName: modelPackageArn,
-	}
 	input := sagemaker.CreateModelInput{
 		ModelName:        &modelName,
 		ExecutionRoleArn: m.executionRoleArn,
-		Containers:       []types.ContainerDefinition{container},
+		Containers: []types.ContainerDefinition{
+			{
+				ModelPackageName: modelPackageArn,
+			},
+		},
 	}
 
-	return m.sagemakerSvc.CreateModel(context.TODO(), &input)
+	_, err := m.sagemakerSvc.CreateModel(context.TODO(), &input)
+
+	return modelName, err
+}
+
+func (m *EndpointManager) CreateEndpointConfig(modelPackageGroupName string, instanceType string, modelName string) (string, error) {
+	now := time.Now()
+	endpointConfigName := fmt.Sprintf("%s-epc-%s", modelPackageGroupName, now.Format("2006-01-02-15-04-05"))
+	input := sagemaker.CreateEndpointConfigInput{
+		EndpointConfigName: &endpointConfigName,
+		ProductionVariants: []types.ProductionVariant{
+			{
+				InstanceType:         types.ProductionVariantInstanceType(instanceType),
+				InitialInstanceCount: aws.Int32(1),
+				InitialVariantWeight: aws.Float32(1),
+				ModelName:            &modelName,
+				VariantName:          aws.String("AllTraffic"),
+			},
+		},
+	}
+
+	_, err := m.sagemakerSvc.CreateEndpointConfig(context.TODO(), &input)
+	return endpointConfigName, err
+}
+
+func (m *EndpointManager) CreateEndpoint(modelPackageGroupName string, endpointConfigName string) (string, error) {
+	endpointName := fmt.Sprintf("%s-ep", modelPackageGroupName)
+	input := sagemaker.CreateEndpointInput{
+		EndpointName:       &endpointName,
+		EndpointConfigName: &endpointConfigName,
+	}
+	_, err := m.sagemakerSvc.CreateEndpoint(context.TODO(), &input)
+
+	return endpointName, err
 }
