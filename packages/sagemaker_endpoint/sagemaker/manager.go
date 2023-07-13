@@ -93,3 +93,51 @@ func (m *EndpointManager) CreateEndpoint(modelPackageGroupName string, endpointC
 
 	return endpointName, err
 }
+
+func (m *EndpointManager) CreateEndpointConfigWithModelName(modelPackageGroupName string, modelName string) (string, error) {
+	now := time.Now()
+	endpointConfigName := fmt.Sprintf("%s-epc-%s", modelPackageGroupName, now.Format("2006-01-02-15-04-05"))
+
+	listEndpointConfigsOutput, err := m.sagemakerSvc.ListEndpointConfigs(context.TODO(), &sagemaker.ListEndpointConfigsInput{
+		NameContains: aws.String(fmt.Sprintf("%s-", modelPackageGroupName)),
+	})
+	if err != nil {
+		return "", err
+	}
+	latestConfig := listEndpointConfigsOutput.EndpointConfigs[0]
+
+	describeEndpointConfigOutput, err := m.sagemakerSvc.DescribeEndpointConfig(context.TODO(), &sagemaker.DescribeEndpointConfigInput{
+		EndpointConfigName: latestConfig.EndpointConfigName,
+	})
+	if err != nil {
+		return "", err
+	}
+
+	variants := describeEndpointConfigOutput.ProductionVariants
+	for _, v := range variants {
+		v.ModelName = &modelName
+	}
+
+	_, err = m.sagemakerSvc.CreateEndpointConfig(context.TODO(), &sagemaker.CreateEndpointConfigInput{
+		EndpointConfigName: &endpointConfigName,
+		ProductionVariants: variants,
+	})
+	for _, v := range variants {
+		v.ModelName = &modelName
+	}
+
+	return endpointConfigName, err
+}
+
+func (m *EndpointManager) UpdateEndpoint(endpointName string, endpointConfigName string) (string, error) {
+	input := sagemaker.UpdateEndpointInput{
+		EndpointName:       &endpointName,
+		EndpointConfigName: &endpointConfigName,
+	}
+	_, err := m.sagemakerSvc.UpdateEndpoint(context.TODO(), &input)
+	if err != nil {
+		return "", err
+	}
+
+	return endpointName, nil
+}

@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="43f1c7b1-b42d-417a-87fb-9495de783178" name="Changes" comment="fix: use al2">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="43f1c7b1-b42d-417a-87fb-9495de783178" name="Changes" comment="feat: update endpoint function">
       <change beforePath="$PROJECT_DIR$/packages/infra/src/pipeline.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/infra/src/pipeline.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,7 +70,8 @@
       <workItem from="1689142815477" duration="159000" />
       <workItem from="1689142976661" duration="17000" />
       <workItem from="1689143004119" duration="201000" />
-      <workItem from="1689143208485" duration="15340000" />
+      <workItem from="1689143208485" duration="16297000" />
+      <workItem from="1689233391100" duration="7096000" />
     </task>
     <task id="LOCAL-00001" summary="feat: Init Commit">
       <created>1688553613529</created>
@@ -275,7 +275,23 @@
       <option name="project" value="LOCAL" />
       <updated>1689163159803</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="fix: delete account id">
+      <option name="closed" value="true" />
+      <created>1689165122250</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1689165122250</updated>
+    </task>
+    <task id="LOCAL-00030" summary="feat: update endpoint function">
+      <option name="closed" value="true" />
+      <created>1689243012723</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1689243012723</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,6 +318,8 @@
     <MESSAGE value="feat: impl model registration" />
     <MESSAGE value="feat: create model" />
     <MESSAGE value="fix: use al2" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: use al2" />
+    <MESSAGE value="fix: delete account id" />
+    <MESSAGE value="feat: update endpoint function" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: update endpoint function" />
   </component>
 </project>

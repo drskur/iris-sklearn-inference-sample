@@ -3,6 +3,8 @@ SPDX-License-Identifier: Apache-2.0 */
 import { GoFunction } from "@aws-cdk/aws-lambda-go-alpha";
 import { Duration, Stack } from "aws-cdk-lib";
 import { IVpc } from "aws-cdk-lib/aws-ec2";
+import { Rule } from "aws-cdk-lib/aws-events";
+import * as targets from "aws-cdk-lib/aws-events-targets";
 import {
   Effect,
   PolicyStatement,
@@ -14,19 +16,19 @@ import { IBucket } from "aws-cdk-lib/aws-s3";
 import { NagSuppressions } from "cdk-nag";
 import { Construct } from "constructs";
 
-export interface CreateEndpointFunctionProps {
+export interface UpdateEndpointFunctionProps {
   readonly vpc: IVpc;
   readonly modelArtifactBucket: IBucket;
   readonly codeStorageBucket: IBucket;
 }
 
-export class CreateEndpointFunction extends Construct {
+export class UpdateEndpointFunction extends Construct {
   public readonly fn: GoFunction;
 
   constructor(
     scope: Construct,
     id: string,
-    props: CreateEndpointFunctionProps
+    props: UpdateEndpointFunctionProps
   ) {
     super(scope, id);
 
@@ -56,16 +58,24 @@ export class CreateEndpointFunction extends Construct {
       new PolicyStatement({
         effect: Effect.ALLOW,
         actions: [
-          "sagemaker:ListModelPackages",
+          "sagemaker:UpdateEndpoint",
           "sagemaker:CreateModel",
           "sagemaker:CreateEndpointConfig",
-          "sagemaker:CreateEndpoint",
+          "sagemaker:DescribeEndpointConfig",
         ],
         resources: [
           `arn:aws:sagemaker:${Stack.of(this).region}:${
             Stack.of(this).account
           }:*`,
         ],
+      })
+    );
+
+    role.addToPolicy(
+      new PolicyStatement({
+        effect: Effect.ALLOW,
+        actions: ["sagemaker:ListEndpointConfigs"],
+        resources: ["*"],
       })
     );
 
@@ -100,7 +110,7 @@ export class CreateEndpointFunction extends Construct {
     );
 
     this.fn = new GoFunction(this, "Function", {
-      entry: "../sagemaker_endpoint/cmd/create_endpoint",
+      entry: "../sagemaker_endpoint/cmd/update_endpoint",
       runtime: Runtime.PROVIDED_AL2,
       timeout: Duration.seconds(10),
       vpc,
@@ -108,6 +118,18 @@ export class CreateEndpointFunction extends Construct {
       environment: {
         SAGEMAKER_REGION: "ap-northeast-2",
         EXECUTION_ROLE_ARN: executionRole.roleArn,
+      },
+    });
+
+    const rule = this.createEventBridgeRule();
+    rule.addTarget(new targets.LambdaFunction(this.fn));
+  }
+
+  private createEventBridgeRule() {
+    return new Rule(this, "Rule", {
+      eventPattern: {
+        source: ["aws.sagemaker"],
+        detailType: ["SageMaker Model Package State Change"],
       },
     });
   }

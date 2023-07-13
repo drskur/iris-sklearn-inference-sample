@@ -7,6 +7,7 @@ import { ExternalStorages } from "./constructs/external-storages";
 import { HipVpc } from "./constructs/hip-vpc";
 import { InvokeEndpointFunction } from "./constructs/invoke-endpoint-function";
 import { ModelRegistrationFunction } from "./constructs/model-registration-function";
+import { UpdateEndpointFunction } from "./constructs/update-endpoint-function";
 
 export class ApplicationStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
@@ -39,6 +40,12 @@ export class ApplicationStack extends Stack {
 
     new InvokeEndpointFunction(this, "InvokeEndpointFunction", {
       vpc,
+    });
+
+    new UpdateEndpointFunction(this, "UpdateEndpointFunction", {
+      vpc,
+      modelArtifactBucket,
+      codeStorageBucket,
     });
   }
 }
