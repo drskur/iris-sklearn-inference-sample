@@ -20,6 +20,7 @@ export interface UpdateEndpointFunctionProps {
   readonly vpc: IVpc;
   readonly modelArtifactBucket: IBucket;
   readonly codeStorageBucket: IBucket;
+  readonly inferenceBucket: IBucket;
 }
 
 export class UpdateEndpointFunction extends Construct {
@@ -32,7 +33,8 @@ export class UpdateEndpointFunction extends Construct {
   ) {
     super(scope, id);
 
-    const { vpc, modelArtifactBucket, codeStorageBucket } = props;
+    const { vpc, modelArtifactBucket, codeStorageBucket, inferenceBucket } =
+      props;
 
     const role = new Role(this, "Role", {
       assumedBy: new ServicePrincipal("lambda.amazonaws.com"),
@@ -86,7 +88,9 @@ export class UpdateEndpointFunction extends Construct {
           id: "AwsSolutions-IAM5",
           appliesTo: [
             "Resource::*",
-            "Resource::arn:aws:sagemaker:ap-northeast-2:<AWS::AccountId>:*",
+            `Resource::arn:aws:sagemaker:${Stack.of(this).region}:${
+              Stack.of(this).account
+            }:*`,
           ],
           reason: "Wildcards are needed for dynamically created resources.",
         },
@@ -97,6 +101,7 @@ export class UpdateEndpointFunction extends Construct {
     const executionRole = this.createExecutionRoleArn([
       modelArtifactBucket,
       codeStorageBucket,
+      inferenceBucket,
     ]);
 
     role.addToPolicy(
@@ -181,6 +186,7 @@ export class UpdateEndpointFunction extends Construct {
             "Resource::*",
             "Resource::<ExternalStoragesModelArtifact7A135898.Arn>/*",
             "Resource::<ExternalStoragesCodeStorage4FE4DB54.Arn>/*",
+            "Resource::<InferenceStorageInferenceA1483016.Arn>/*",
           ],
           reason: "Wildcards are needed for dynamically created resources.",
         },

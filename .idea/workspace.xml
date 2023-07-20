@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="43f1c7b1-b42d-417a-87fb-9495de783178" name="Changes" comment="feat: update endpoint function">
+    <list default="true" id="43f1c7b1-b42d-417a-87fb-9495de783178" name="Changes" comment="feat: add inference bucket and add permission for it.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/infra/src/constructs/create-endpoint-function.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/infra/src/constructs/create-endpoint-function.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/infra/src/constructs/invoke-endpoint-function.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/infra/src/constructs/invoke-endpoint-function.ts" afterDir="false" />
@@ -78,7 +78,7 @@
       <workItem from="1689143208485" duration="16297000" />
       <workItem from="1689233391100" duration="7300000" />
       <workItem from="1689574845649" duration="1803000" />
-      <workItem from="1689819015635" duration="5139000" />
+      <workItem from="1689819015635" duration="8402000" />
     </task>
     <task id="LOCAL-00001" summary="feat: Init Commit">
       <created>1688553613529</created>
@@ -306,7 +306,23 @@
       <option name="project" value="LOCAL" />
       <updated>1689243062810</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="fix: NagSuppression for general aws account id">
+      <option name="closed" value="true" />
+      <created>1689833081432</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1689833081433</updated>
+    </task>
+    <task id="LOCAL-00033" summary="feat: add inference bucket and add permission for it.">
+      <option name="closed" value="true" />
+      <created>1689836964334</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1689836964334</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -335,6 +351,8 @@
     <MESSAGE value="fix: use al2" />
     <MESSAGE value="fix: delete account id" />
     <MESSAGE value="feat: update endpoint function" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: update endpoint function" />
+    <MESSAGE value="fix: NagSuppression for general aws account id" />
+    <MESSAGE value="feat: add inference bucket and add permission for it." />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add inference bucket and add permission for it." />
   </component>
 </project>

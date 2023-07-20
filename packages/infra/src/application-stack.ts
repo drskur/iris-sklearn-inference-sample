@@ -5,6 +5,7 @@ import { Construct } from "constructs";
 import { CreateEndpointFunction } from "./constructs/create-endpoint-function";
 import { ExternalStorages } from "./constructs/external-storages";
 import { HipVpc } from "./constructs/hip-vpc";
+import { InferenceStorage } from "./constructs/inference-storage";
 import { InvokeEndpointFunction } from "./constructs/invoke-endpoint-function";
 import { ModelRegistrationFunction } from "./constructs/model-registration-function";
 import { UpdateEndpointFunction } from "./constructs/update-endpoint-function";
@@ -32,10 +33,13 @@ export class ApplicationStack extends Stack {
       codeStorageBucket,
     });
 
+    const { inferenceBucket } = new InferenceStorage(this, "InferenceStorage");
+
     new CreateEndpointFunction(this, "CreateEndpointFunction", {
       vpc,
       modelArtifactBucket,
       codeStorageBucket,
+      inferenceBucket,
     });
 
     new InvokeEndpointFunction(this, "InvokeEndpointFunction", {
@@ -46,6 +50,7 @@ export class ApplicationStack extends Stack {
       vpc,
       modelArtifactBucket,
       codeStorageBucket,
+      inferenceBucket,
     });
   }
 }

@@ -76,7 +76,9 @@ export class ModelRegistrationFunction extends Construct {
           id: "AwsSolutions-IAM5",
           appliesTo: [
             "Resource::*",
-            "Resource::arn:aws:sagemaker:ap-northeast-2:<AWS::AccountId>:*",
+            `Resource::arn:aws:sagemaker:${Stack.of(this).region}:${
+              Stack.of(this).account
+            }:*`,
           ],
           reason: "Wildcards are needed for dynamically created resources.",
         },
