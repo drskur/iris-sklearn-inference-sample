@@ -4,12 +4,13 @@ import { Stack, StackProps } from "aws-cdk-lib";
 import { Construct } from "constructs";
 import { CreateEndpointFunction } from "./constructs/create-endpoint-function";
 import { ExternalStorages } from "./constructs/external-storages";
+import { GeneralInferenceWorkflow } from "./constructs/general-inference-workflow";
 import { HipVpc } from "./constructs/hip-vpc";
 import { InferenceStorage } from "./constructs/inference-storage";
 import { InvokeEndpointFunction } from "./constructs/invoke-endpoint-function";
 import { ModelRegistrationFunction } from "./constructs/model-registration-function";
+import { PostInferenceFunction } from "./constructs/post-inference-function";
 import { UpdateEndpointFunction } from "./constructs/update-endpoint-function";
-import { GeneralInferenceWorkflow } from "./constructs/general-inference-workflow";
 
 export class ApplicationStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
@@ -54,8 +55,18 @@ export class ApplicationStack extends Stack {
       inferenceBucket,
     });
 
+    const postInferenceFunction = new PostInferenceFunction(
+      this,
+      "PostInferenceFunction",
+      {
+        vpc,
+        inferenceBucket,
+      }
+    );
+
     new GeneralInferenceWorkflow(this, "GeneralInferenceWorkflow", {
       inferenceBucket,
+      postInferenceFunction: postInferenceFunction.fn,
     });
   }
 }

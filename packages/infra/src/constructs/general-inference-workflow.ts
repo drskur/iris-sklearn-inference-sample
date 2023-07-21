@@ -6,6 +6,7 @@ import {
   Role,
   ServicePrincipal,
 } from "aws-cdk-lib/aws-iam";
+import { IFunction } from "aws-cdk-lib/aws-lambda";
 import { LogGroup } from "aws-cdk-lib/aws-logs";
 import { IBucket } from "aws-cdk-lib/aws-s3";
 import {
@@ -14,8 +15,10 @@ import {
   JsonPath,
   LogLevel,
   StateMachine,
+  TaskInput,
 } from "aws-cdk-lib/aws-stepfunctions";
 import {
+  LambdaInvoke,
   S3DataType,
   SageMakerCreateTransformJob,
 } from "aws-cdk-lib/aws-stepfunctions-tasks";
@@ -24,6 +27,7 @@ import { Construct } from "constructs";
 
 export interface GeneralInferenceWorkflowProps {
   readonly inferenceBucket: IBucket;
+  readonly postInferenceFunction: IFunction;
 }
 
 export class GeneralInferenceWorkflow extends Construct {
@@ -37,7 +41,7 @@ export class GeneralInferenceWorkflow extends Construct {
   ) {
     super(scope, id);
 
-    const { inferenceBucket } = props;
+    const { inferenceBucket, postInferenceFunction } = props;
 
     this.inferenceBucket = inferenceBucket;
 
@@ -46,6 +50,12 @@ export class GeneralInferenceWorkflow extends Construct {
     });
 
     const transformJobTask = this.createTransformJobTask();
+    const postInferenceTask = new LambdaInvoke(this, "PostInferenceTask", {
+      lambdaFunction: postInferenceFunction,
+      payload: TaskInput.fromJsonPathAt("$"),
+    });
+
+    const definition = transformJobTask.next(postInferenceTask);
 
     const role = new Role(this, "StateMachineRole", {
       assumedBy: new ServicePrincipal("states.amazonaws.com"),
@@ -78,6 +88,7 @@ export class GeneralInferenceWorkflow extends Construct {
             `Resource::arn:<AWS::Partition>:sagemaker:${
               Stack.of(this).region
             }:${Stack.of(this).account}:transform-job/*`,
+            "Resource::<PostInferenceFunction5913BC79.Arn>:*",
           ],
           reason: "Wildcards are needed for dynamically created resources.",
         },
@@ -86,7 +97,7 @@ export class GeneralInferenceWorkflow extends Construct {
     );
 
     this.stateMachine = new StateMachine(this, "GeneralInferenceWorkflow", {
-      definitionBody: DefinitionBody.fromChainable(transformJobTask),
+      definitionBody: DefinitionBody.fromChainable(definition),
       role,
       tracingEnabled: true,
       timeout: Duration.minutes(30),

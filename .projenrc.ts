@@ -46,4 +46,10 @@ new Project({
   outdir: "packages/sagemaker_endpoint",
 });
 
+new Project({
+  parent: project,
+  name: "sagemaker_batch_inference",
+  outdir: "packages/sagemaker_batch_inference",
+});
+
 project.synth();

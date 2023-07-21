@@ -3,4 +3,5 @@
 packages:
   - packages/infra
   - packages/model_registration
+  - packages/sagemaker_batch_inference
   - packages/sagemaker_endpoint
