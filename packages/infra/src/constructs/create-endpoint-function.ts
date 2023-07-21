@@ -88,11 +88,10 @@ export class CreateEndpointFunction extends Construct {
       true
     );
 
-    const executionRole = this.createExecutionRoleArn([
-      modelArtifactBucket,
-      codeStorageBucket,
-      inferenceBucket,
-    ]);
+    const executionRole = this.createExecutionRoleArn(
+      [modelArtifactBucket, codeStorageBucket, inferenceBucket],
+      [inferenceBucket]
+    );
 
     role.addToPolicy(
       new PolicyStatement({
@@ -117,7 +116,10 @@ export class CreateEndpointFunction extends Construct {
 
   // Create execution role for Model creation
   // refer this link - https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html#sagemaker-roles-createmodel-perms
-  private createExecutionRoleArn(readBuckets: IBucket[]) {
+  private createExecutionRoleArn(
+    readBuckets: IBucket[],
+    writeBuckets: IBucket[]
+  ) {
     const role = new Role(this, "ModelExecutionRole", {
       assumedBy: new ServicePrincipal("sagemaker.amazonaws.com"),
     });
@@ -152,6 +154,10 @@ export class CreateEndpointFunction extends Construct {
       bucket.grantRead(role);
     }
 
+    for (const bucket of writeBuckets) {
+      bucket.grantWrite(role);
+    }
+
     NagSuppressions.addResourceSuppressions(
       role,
       [
@@ -161,6 +167,8 @@ export class CreateEndpointFunction extends Construct {
             "Action::s3:GetObject*",
             "Action::s3:GetBucket*",
             "Action::s3:List*",
+            "Action::s3:DeleteObject*",
+            "Action::s3:Abort*",
             "Resource::*",
             "Resource::<ExternalStoragesModelArtifact7A135898.Arn>/*",
             "Resource::<ExternalStoragesCodeStorage4FE4DB54.Arn>/*",

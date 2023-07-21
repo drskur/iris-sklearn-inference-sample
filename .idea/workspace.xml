@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="43f1c7b1-b42d-417a-87fb-9495de783178" name="Changes" comment="feat: add inference bucket and add permission for it.">
+    <list default="true" id="43f1c7b1-b42d-417a-87fb-9495de783178" name="Changes" comment="feat: general inference workflow">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/infra/src/constructs/create-endpoint-function.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/infra/src/constructs/create-endpoint-function.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/infra/src/constructs/invoke-endpoint-function.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/infra/src/constructs/invoke-endpoint-function.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/infra/src/constructs/model-registration-function.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/infra/src/constructs/model-registration-function.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/infra/src/constructs/update-endpoint-function.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/infra/src/constructs/update-endpoint-function.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/infra/src/pipeline.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/infra/src/pipeline.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.projenrc.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.projenrc.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/infra/.projen/deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/infra/.projen/deps.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/infra/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/infra/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/infra/src/constructs/general-inference-workflow.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/infra/src/constructs/general-inference-workflow.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +78,8 @@
       <workItem from="1689143208485" duration="16297000" />
       <workItem from="1689233391100" duration="7300000" />
       <workItem from="1689574845649" duration="1803000" />
-      <workItem from="1689819015635" duration="8402000" />
+      <workItem from="1689819015635" duration="9578000" />
+      <workItem from="1689839036154" duration="8920000" />
     </task>
     <task id="LOCAL-00001" summary="feat: Init Commit">
       <created>1688553613529</created>
@@ -322,7 +323,39 @@
       <option name="project" value="LOCAL" />
       <updated>1689836964334</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="feat: add inference bucket and add permission for it.">
+      <option name="closed" value="true" />
+      <created>1689838003761</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1689838003761</updated>
+    </task>
+    <task id="LOCAL-00035" summary="feat: general inference workflow">
+      <option name="closed" value="true" />
+      <created>1689910645262</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1689910645262</updated>
+    </task>
+    <task id="LOCAL-00036" summary="feat: general inference workflow">
+      <option name="closed" value="true" />
+      <created>1689910772827</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1689910772827</updated>
+    </task>
+    <task id="LOCAL-00037" summary="feat: general inference workflow">
+      <option name="closed" value="true" />
+      <created>1689910953584</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1689910953584</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -353,6 +386,7 @@
     <MESSAGE value="feat: update endpoint function" />
     <MESSAGE value="fix: NagSuppression for general aws account id" />
     <MESSAGE value="feat: add inference bucket and add permission for it." />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add inference bucket and add permission for it." />
+    <MESSAGE value="feat: general inference workflow" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: general inference workflow" />
   </component>
 </project>

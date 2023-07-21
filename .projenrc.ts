@@ -2,9 +2,9 @@
 SPDX-License-Identifier: Apache-2.0 */
 import { NxMonorepoProject } from "@aws-prototyping-sdk/nx-monorepo";
 import { PDKPipelineTsProject } from "@aws-prototyping-sdk/pipeline";
+import { Project } from "projen";
 import { NodePackageManager } from "projen/lib/javascript";
 import { TypeScriptProject } from "projen/lib/typescript";
-import { Project } from "projen";
 
 const project = new NxMonorepoProject({
   defaultReleaseBranch: "mainline",
@@ -25,6 +25,7 @@ new PDKPipelineTsProject({
   name: "infra",
   cdkVersion: "2.1.0",
   deps: ["@aws-cdk/aws-lambda-go-alpha"],
+  devDeps: ["@types/uuid"],
 });
 
 new TypeScriptProject({

@@ -9,6 +9,7 @@ import { InferenceStorage } from "./constructs/inference-storage";
 import { InvokeEndpointFunction } from "./constructs/invoke-endpoint-function";
 import { ModelRegistrationFunction } from "./constructs/model-registration-function";
 import { UpdateEndpointFunction } from "./constructs/update-endpoint-function";
+import { GeneralInferenceWorkflow } from "./constructs/general-inference-workflow";
 
 export class ApplicationStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
@@ -50,6 +51,10 @@ export class ApplicationStack extends Stack {
       vpc,
       modelArtifactBucket,
       codeStorageBucket,
+      inferenceBucket,
+    });
+
+    new GeneralInferenceWorkflow(this, "GeneralInferenceWorkflow", {
       inferenceBucket,
     });
   }
