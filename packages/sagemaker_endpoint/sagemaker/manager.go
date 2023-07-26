@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/sagemaker"
 	"github.com/aws/aws-sdk-go-v2/service/sagemaker/types"
 	"log"
+	"os"
 	"time"
 )
 
@@ -54,6 +55,35 @@ func (m *EndpointManager) CreateModel(modelPackageGroupName string, modelPackage
 		Containers: []types.ContainerDefinition{
 			{
 				ModelPackageName: modelPackageArn,
+			},
+		},
+	}
+
+	_, err := m.sagemakerSvc.CreateModel(context.TODO(), &input)
+
+	return modelName, err
+}
+
+func (m *EndpointManager) CreateMultiModel(modelPackageGroupName string, modelArtifactsS3Prefix string, codeStorageS3Key string) (string, error) {
+	now := time.Now()
+	modelName := fmt.Sprintf("%s-%s", modelPackageGroupName, now.Format("2006-01-02-15-04-05"))
+	region := os.Getenv("SAGEMAKER_REGION")
+	modelBucket := os.Getenv("MODEL_ARTIFACT_BUCKET")
+	codeBucket := os.Getenv("CODE_STORAGE_BUCKET")
+	input := sagemaker.CreateModelInput{
+		ModelName:        &modelName,
+		ExecutionRoleArn: m.executionRoleArn,
+		Containers: []types.ContainerDefinition{
+			{
+				Image:        aws.String("366743142698.dkr.ecr.ap-northeast-2.amazonaws.com/sagemaker-scikit-learn:1.2-1-cpu-py3"),
+				ModelDataUrl: aws.String(fmt.Sprintf("s3://%s/%s", modelBucket, modelArtifactsS3Prefix)),
+				Mode:         types.ContainerModeMultiModel,
+				Environment: map[string]string{
+					"SAGEMAKER_CONTAINER_LOG_LEVEL": "20",
+					"SAGEMAKER_PROGRAM":             "inference.py",
+					"SAGEMAKER_REGION":              region,
+					"SAGEMAKER_SUBMIT_DIRECTORY":    fmt.Sprintf("s3://%s/%s", codeBucket, codeStorageS3Key),
+				},
 			},
 		},
 	}

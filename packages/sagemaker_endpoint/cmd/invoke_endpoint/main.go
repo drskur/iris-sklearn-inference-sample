@@ -13,6 +13,7 @@ import (
 
 type InvokeEndpointEvent struct {
 	EndpointName string `json:"endpointName"`
+	TargetModel  string `json:"targetModel,omitempty"`
 	Body         string `json:"body"`
 }
 
@@ -36,6 +37,10 @@ func HandleRequest(ctx context.Context, event InvokeEndpointEvent) (string, erro
 		EndpointName: &event.EndpointName,
 		Body:         []byte(event.Body),
 		ContentType:  aws.String("application/json"),
+	}
+
+	if event.TargetModel != "" {
+		input.TargetModel = &event.TargetModel
 	}
 
 	output, err := runtime.InvokeEndpoint(context.TODO(), &input)

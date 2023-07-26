@@ -4,16 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="43f1c7b1-b42d-417a-87fb-9495de783178" name="Changes" comment="feat: general inference workflow">
-      <change afterPath="$PROJECT_DIR$/packages/infra/src/constructs/post-inference-function.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/sagemaker_batch_inference/cmd/post_inference/main.go" afterDir="false" />
+    <list default="true" id="43f1c7b1-b42d-417a-87fb-9495de783178" name="Changes" comment="feat: add post inference task">
+      <change afterPath="$PROJECT_DIR$/packages/infra/src/constructs/create-multi-model-endpoint-function.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/sagemaker_endpoint/cmd/create_multi_model_endpoint/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.projenrc.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.projenrc.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/infra/src/application-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/infra/src/application-stack.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/infra/src/constructs/general-inference-workflow.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/infra/src/constructs/general-inference-workflow.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-workspace.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-workspace.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/sagemaker_endpoint/cmd/invoke_endpoint/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/packages/sagemaker_endpoint/cmd/invoke_endpoint/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/sagemaker_endpoint/sagemaker/manager.go" beforeDir="false" afterPath="$PROJECT_DIR$/packages/sagemaker_endpoint/sagemaker/manager.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +27,9 @@
     <dismissed value="$PROJECT_DIR$/package.json" />
     <dismissed value="$PROJECT_DIR$/packages/infra/package.json" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3
+}]]></component>
   <component name="ProjectId" id="2S9Ioff7VetFITX1SrREZ3wTXpZ" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -82,7 +82,8 @@
       <workItem from="1689233391100" duration="7300000" />
       <workItem from="1689574845649" duration="1803000" />
       <workItem from="1689819015635" duration="9578000" />
-      <workItem from="1689839036154" duration="15271000" />
+      <workItem from="1689839036154" duration="17471000" />
+      <workItem from="1690332640387" duration="7032000" />
     </task>
     <task id="LOCAL-00001" summary="feat: Init Commit">
       <created>1688553613529</created>
@@ -366,7 +367,15 @@
       <option name="project" value="LOCAL" />
       <updated>1689913575608</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="feat: add post inference task">
+      <option name="closed" value="true" />
+      <created>1689924082875</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1689924082875</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -398,6 +407,7 @@
     <MESSAGE value="fix: NagSuppression for general aws account id" />
     <MESSAGE value="feat: add inference bucket and add permission for it." />
     <MESSAGE value="feat: general inference workflow" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: general inference workflow" />
+    <MESSAGE value="feat: add post inference task" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add post inference task" />
   </component>
 </project>

@@ -11,6 +11,7 @@ import { InvokeEndpointFunction } from "./constructs/invoke-endpoint-function";
 import { ModelRegistrationFunction } from "./constructs/model-registration-function";
 import { PostInferenceFunction } from "./constructs/post-inference-function";
 import { UpdateEndpointFunction } from "./constructs/update-endpoint-function";
+import { CreateMultiModelEndpointFunction } from "./constructs/create-multi-model-endpoint-function";
 
 export class ApplicationStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
@@ -68,5 +69,16 @@ export class ApplicationStack extends Stack {
       inferenceBucket,
       postInferenceFunction: postInferenceFunction.fn,
     });
+
+    new CreateMultiModelEndpointFunction(
+      this,
+      "CreateMultiModelEndpointFunction",
+      {
+        vpc,
+        modelArtifactBucket,
+        codeStorageBucket,
+        inferenceBucket,
+      }
+    );
   }
 }
